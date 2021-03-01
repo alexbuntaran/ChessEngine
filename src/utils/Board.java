@@ -28,7 +28,7 @@ public class Board {
             g.drawString("" + file, x + (Constants.SQUARE_WIDTH * ranks) + Constants.SQUARE_WIDTH / 2, Constants.SQUARE_HEIGHT / 4 + Constants.SQUARE_HEIGHT * Constants.RANKS + 11);
             file++;
             for (int files = 0; files < Constants.FILES; files++) {
-                Color color = (ranks + files) % 2 == 0 ? Color.LIGHT_GRAY : Color.DARK_GRAY;
+                Color color = (ranks + files) % 2 == 0 ? Color.LIGHT_GRAY : Color.GRAY;
                 g.setColor(color);
                 g.fillRect(x, y, Constants.SQUARE_WIDTH, Constants.SQUARE_HEIGHT);
                 x += Constants.SQUARE_WIDTH;

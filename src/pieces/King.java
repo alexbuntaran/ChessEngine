@@ -1,24 +1,32 @@
 package pieces;
 
+import displayers.ImageLoader;
+
 import java.awt.Graphics;
+import java.awt.image.BufferedImage;
 
 public class King extends Piece {
 
-    private int x;
-    private int y;
+    private BufferedImage sprite;
     
     public King(int color) {
         super(color);
-        x = 10;
-        y = 10;
+        x = 115;
+        y = 115;
+        sprite = ImageLoader.loadImage("Assets.png");
+        sprite = sprite.getSubimage(0, 0, 200, 200);
     }
 
-    public void update() {
-        
+    @Override
+    public void update(int x, int y, Turn turn) {
+        this.x = x - 50; // subtract by width / 2
+        this.y = y - 50; // subtract by height / 2
+        this.turn = turn;
     }
 
+    @Override
     public void render(Graphics g) {
-        g.fillRect(x, y, 100, 100);
+        g.drawImage(sprite, x, y, 100, 100, null);
     }
 
 }

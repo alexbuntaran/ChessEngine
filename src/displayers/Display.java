@@ -1,9 +1,11 @@
-package utils;
+package displayers;
 
 import java.awt.BorderLayout;
 import java.awt.Canvas;
 
 import javax.swing.JFrame;
+
+import utils.Constants;
 
 public class Display {
 

@@ -1,16 +1,17 @@
 package main;
 
+import displayers.Display;
+
 import java.awt.Graphics;
 import java.awt.image.BufferStrategy;
 
 import utils.Board;
 import utils.Constants;
-import utils.Display;
 import utils.PieceManager;
 
 public class Game implements Runnable {
 
-    private final long DELTA_TIME = 1000;
+    private final long DELTA_TIME = 10;
 
     private Thread thread;
     private boolean running;
@@ -31,6 +32,8 @@ public class Game implements Runnable {
 
     private void init() {
         display.initialize();
+        display.getCanvas().addMouseListener(pm);
+        display.getCanvas().addMouseMotionListener(pm);
         display.getCanvas().createBufferStrategy(Constants.NUMBER_OF_BUFFERS);
         bs = display.getCanvas().getBufferStrategy();
         pm.addPieces();
@@ -44,10 +47,8 @@ public class Game implements Runnable {
     private void render() {
         g = bs.getDrawGraphics();
         g.clearRect(0, 0, Constants.FRAME_WIDTH, Constants.FRAME_HEIGHT);
-        // draw board
         board.drawBoard(g);
         pm.render(g);
-        // draw pieces
         bs.show();
         g.dispose();
     }
