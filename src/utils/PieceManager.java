@@ -36,27 +36,27 @@ public class PieceManager implements MouseMotionListener, MouseListener {
         for (int i = 0; i < 2; i++) {
             pieces[i][0] = new King(i);
             pieces[i][1] = new Queen(i);
-            pieces[i][2] = new Rook(i);
-            pieces[i][3] = new Rook(i);
-            pieces[i][4] = new Bishop(i);
-            pieces[i][5] = new Bishop(i);
-            pieces[i][6] = new Knight(i);
-            pieces[i][7] = new Knight(i);
-            pieces[i][8] = new Pawn(i);
-            pieces[i][9] = new Pawn(i);
-            pieces[i][10] = new Pawn(i);
-            pieces[i][11] = new Pawn(i);
-            pieces[i][12] = new Pawn(i);
-            pieces[i][13] = new Pawn(i);
-            pieces[i][14] = new Pawn(i);
-            pieces[i][15] = new Pawn(i);
+
+            int count = 2;
+            for (int j = 0; j < 2; j++) {
+                pieces[i][count++] = new Rook(i, j);
+            }
+
+            for (int j = 0; j < 2; j++) {
+                pieces[i][count++] = new Bishop(i, j);
+            }
+
+            for (int j = 0; j < 2; j++) {
+                pieces[i][count++] = new Knight(i, j);
+            }
+
+            for (int j = 0; j < 8; j++) {
+                pieces[i][count++] = new Pawn(i, j);
+            }
         }
     }
 
     public void update() {
-        // determine which piece is selected
-        // determine where the piece should move
-
         if (selected) {
             pieces[pieceX][pieceY].update(mouseX, mouseY, Turn.MOVE);
         }
@@ -65,7 +65,12 @@ public class PieceManager implements MouseMotionListener, MouseListener {
     public void render(Graphics g) {
         g.drawString(mouseX + ", " + mouseY, 10, 10);
         g.drawString("" + selected, 10, 30);
-        // draw the pieces
+        for (int i = 0; i < pieces.length; i++) {
+            for (int j = 0; j < pieces[0].length; j++) {
+                pieces[i][j].render(g);
+            }
+        }
+
         pieces[pieceX][pieceY].render(g);
     }
 
