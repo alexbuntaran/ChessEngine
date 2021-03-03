@@ -1,6 +1,7 @@
 package pieces;
 
 import displayers.ImageLoader;
+import utils.Board;
 import utils.Constants;
 
 import java.awt.Graphics;
@@ -14,12 +15,12 @@ public class King extends Piece {
         super(color);
         sprite = ImageLoader.loadImage("Assets.png");
         if (super.color == Color.WHITE) {
-            x = Constants.FRAME_WIDTH / 2 - Constants.SQUARE_WIDTH * (Constants.FILES / 2) + Constants.SQUARE_WIDTH * 4;
-            y = Constants.SQUARE_HEIGHT / 4 + Constants.SQUARE_HEIGHT * 7;
+            x = Board.getSquare('E', 1).getX();
+            y = Board.getSquare('E', 1).getY();
             sprite = sprite.getSubimage(0, 0, 200, 200);
         } else {
-            x = Constants.FRAME_WIDTH / 2 - Constants.SQUARE_WIDTH * (Constants.FILES / 2) + Constants.SQUARE_WIDTH * 4;
-            y = Constants.SQUARE_HEIGHT / 4;
+            x = Board.getSquare('E', 8).getX();
+            y = Board.getSquare('E', 8).getY();
             sprite = sprite.getSubimage(0, 200, 200, 200);
         }        
     }

@@ -1,6 +1,7 @@
 package pieces;
 
 import displayers.ImageLoader;
+import utils.Board;
 import utils.Constants;
 
 import java.awt.Graphics;
@@ -14,12 +15,12 @@ public class Bishop extends Piece {
         super(color);
         sprite = ImageLoader.loadImage("Assets.png");
         if (super.color == Color.WHITE) {
-            x = Constants.FRAME_WIDTH / 2 - Constants.SQUARE_WIDTH * (Constants.FILES / 2) + Constants.SQUARE_WIDTH * 2 + Constants.SQUARE_WIDTH * 3 * num;
-            y = Constants.SQUARE_HEIGHT / 4 + Constants.SQUARE_HEIGHT * 7;
+            x = Board.getSquare((char) ('C' + num * 3), 1).getX();
+            y = Board.getSquare((char) ('C' + num * 3), 1).getY();
             sprite = sprite.getSubimage(400, 0, 200, 200);
         } else {
-            x = Constants.FRAME_WIDTH / 2 - Constants.SQUARE_WIDTH * (Constants.FILES / 2) + Constants.SQUARE_WIDTH * 2 + Constants.SQUARE_WIDTH * 3 * num;
-            y = Constants.SQUARE_HEIGHT / 4;
+            x = Board.getSquare((char) ('C' + num * 3), 8).getX();
+            y = Board.getSquare((char) ('C' + num * 3), 8).getY();
             sprite = sprite.getSubimage(400, 200, 200, 200);
         } 
     }

@@ -1,6 +1,7 @@
 package pieces;
 
 import displayers.ImageLoader;
+import utils.Board;
 import utils.Constants;
 
 import java.awt.Graphics;
@@ -14,12 +15,12 @@ public class Pawn extends Piece {
         super(color);
         sprite = ImageLoader.loadImage("Assets.png");
         if (super.color == Color.WHITE) {
-            x = Constants.FRAME_WIDTH / 2 - Constants.SQUARE_WIDTH * (Constants.FILES / 2) + Constants.SQUARE_WIDTH * num;
-            y = Constants.SQUARE_HEIGHT / 4 + Constants.SQUARE_HEIGHT * 7 - Constants.SQUARE_HEIGHT;
+            x = Board.getSquare((char) ('A' + num), 2).getX();
+            y = Board.getSquare((char) ('A' + num), 2).getY();
             sprite = sprite.getSubimage(1000, 0, 200, 200);
         } else {
-            x = Constants.FRAME_WIDTH / 2 - Constants.SQUARE_WIDTH * (Constants.FILES / 2) + Constants.SQUARE_WIDTH * num;
-            y = Constants.SQUARE_HEIGHT / 4 + Constants.SQUARE_HEIGHT;
+            x = Board.getSquare((char) ('A' + num), 7).getX();
+            y = Board.getSquare((char) ('A' + num), 7).getY();
             sprite = sprite.getSubimage(1000, 200, 200, 200);
         } 
     }
