@@ -15,12 +15,10 @@ public class Bishop extends Piece {
         super(color);
         sprite = ImageLoader.loadImage("Assets.png");
         if (super.color == Color.WHITE) {
-            x = Board.getSquare((char) ('C' + num * 3), 1).getX();
-            y = Board.getSquare((char) ('C' + num * 3), 1).getY();
+            setSquare(Board.getSquare((char) ('C' + num * 3), 1));
             sprite = sprite.getSubimage(400, 0, 200, 200);
         } else {
-            x = Board.getSquare((char) ('C' + num * 3), 8).getX();
-            y = Board.getSquare((char) ('C' + num * 3), 8).getY();
+            setSquare(Board.getSquare((char) ('C' + num * 3), 8));
             sprite = sprite.getSubimage(400, 200, 200, 200);
         } 
     }

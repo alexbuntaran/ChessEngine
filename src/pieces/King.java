@@ -15,12 +15,10 @@ public class King extends Piece {
         super(color);
         sprite = ImageLoader.loadImage("Assets.png");
         if (super.color == Color.WHITE) {
-            x = Board.getSquare('E', 1).getX();
-            y = Board.getSquare('E', 1).getY();
+            setSquare(Board.getSquare('E', 1));
             sprite = sprite.getSubimage(0, 0, 200, 200);
         } else {
-            x = Board.getSquare('E', 8).getX();
-            y = Board.getSquare('E', 8).getY();
+            setSquare(Board.getSquare('E', 8));
             sprite = sprite.getSubimage(0, 200, 200, 200);
         }        
     }

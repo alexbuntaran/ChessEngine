@@ -15,12 +15,10 @@ public class Rook extends Piece {
         super(color);
         sprite = ImageLoader.loadImage("Assets.png");
         if (super.color == Color.WHITE) {
-            x = Board.getSquare((char) ('A' + num * 7), 1).getX();
-            y = Board.getSquare((char) ('A' + num * 7), 1).getY();
+            setSquare(Board.getSquare((char) ('A' + num * 7), 1));
             sprite = sprite.getSubimage(800, 0, 200, 200);
         } else {
-            x = Board.getSquare((char) ('A' + num * 7), 8).getX();
-            y = Board.getSquare((char) ('A' + num * 7), 8).getY();
+            setSquare(Board.getSquare((char) ('A' + num * 7), 8));
             sprite = sprite.getSubimage(800, 200, 200, 200);
         } 
     }

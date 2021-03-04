@@ -47,7 +47,7 @@ public class Game implements Runnable {
     private void render() {
         g = bs.getDrawGraphics();
         g.clearRect(0, 0, Constants.FRAME_WIDTH, Constants.FRAME_HEIGHT);
-        board.drawBoard(g);
+        board.render(g);
         pm.render(g);
         bs.show();
         g.dispose();

@@ -15,12 +15,10 @@ public class Pawn extends Piece {
         super(color);
         sprite = ImageLoader.loadImage("Assets.png");
         if (super.color == Color.WHITE) {
-            x = Board.getSquare((char) ('A' + num), 2).getX();
-            y = Board.getSquare((char) ('A' + num), 2).getY();
+            setSquare(Board.getSquare((char) ('A' + num), 2));
             sprite = sprite.getSubimage(1000, 0, 200, 200);
         } else {
-            x = Board.getSquare((char) ('A' + num), 7).getX();
-            y = Board.getSquare((char) ('A' + num), 7).getY();
+            setSquare(Board.getSquare((char) ('A' + num), 7));
             sprite = sprite.getSubimage(1000, 200, 200, 200);
         } 
     }

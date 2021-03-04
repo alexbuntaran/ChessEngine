@@ -15,12 +15,10 @@ public class Queen extends Piece {
         super(color);
         sprite = ImageLoader.loadImage("Assets.png");
         if (super.color == Color.WHITE) {
-            x = Board.getSquare('D', 1).getX();
-            y = Board.getSquare('D', 1).getY();
+            setSquare(Board.getSquare('D', 1));
             sprite = sprite.getSubimage(200, 0, 200, 200);
         } else {
-            x = Board.getSquare('D', 8).getX();
-            y = Board.getSquare('D', 8).getY();
+            setSquare(Board.getSquare('D', 8));
             sprite = sprite.getSubimage(200, 200, 200, 200);
         } 
     }

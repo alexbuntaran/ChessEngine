@@ -15,12 +15,10 @@ public class Knight extends Piece {
         super(color);
         sprite = ImageLoader.loadImage("Assets.png");
         if (super.color == Color.WHITE) {
-            x = Board.getSquare((char) ('B' + num * 5), 1).getX();
-            y = Board.getSquare((char) ('B' + num * 5), 1).getY();
+            setSquare(Board.getSquare((char) ('B' + num * 5), 1));
             sprite = sprite.getSubimage(600, 0, 200, 200);
         } else {
-            x = Board.getSquare((char) ('B' + num * 5), 8).getX();
-            y = Board.getSquare((char) ('B' + num * 5), 8).getY();
+            setSquare(Board.getSquare((char) ('B' + num * 5), 8));
             sprite = sprite.getSubimage(600, 200, 200, 200);
         } 
     }

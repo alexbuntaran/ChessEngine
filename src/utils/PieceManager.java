@@ -3,6 +3,7 @@ package utils;
 import java.awt.event.MouseEvent;
 import java.awt.event.MouseListener;
 import java.awt.event.MouseMotionListener;
+import java.awt.Color;
 import java.awt.Graphics;
 
 import pieces.Bishop;
@@ -107,7 +108,25 @@ public class PieceManager implements MouseMotionListener, MouseListener {
 
     @Override
     public void mouseReleased(MouseEvent e) {
+        // TODO: create actual move methods that can be used to move the certain squares
         selected = false;
+        Square desiredSquare = pieces[pieceX][pieceY].getSquare();
+        for (char files = 'A'; files <= 'H'; files++) {
+            for (int ranks = 1; ranks <= Constants.RANKS; ranks++) {
+                Square square = Board.getSquare(files, ranks);
+                if (e.getX() >= square.getX() && e.getX() <= square.getX() + Constants.SQUARE_WIDTH && e.getY() >= square.getY() && e.getY() <= square.getY() + Constants.SQUARE_HEIGHT) {
+                    desiredSquare.removePiece();
+                    desiredSquare = square;
+                    break;
+                }
+            }
+        }
+
+        if (desiredSquare.getPiece() != null) {
+            desiredSquare.removePiece();
+        }
+
+        pieces[pieceX][pieceY].setSquare(desiredSquare);
     }
 
     @Override
